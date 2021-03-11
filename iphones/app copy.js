@@ -51,19 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   
   const accordion = () => {
-    const characteristicsList = document.querySelector('.characteristics__list');
-    const characteristicsItem = document.querySelectorAll('.characteristics__item');
+    const characteristicsTitle = document.querySelectorAll('.characteristics__title');
+    const characteristicsDescription = document.querySelectorAll('.characteristics__description');
 
-    const open = (button, dropDown) => {
-      button.classList.add('active');
-      dropDown.classList.add('active');
-    }
-
-    const close = (button, dropDown) => {
-      button.classList.remove('active');
-      dropDown.classList.remove('active');
-      dropDown.style.height = '';
-    }
+    characteristicsTitle.forEach((elem, i) => {
+      elem.addEventListener('click', () => {
+        elem.classList.toggle('active');
+        characteristicsDescription[i].classList.toggle('active');
+      })
+    });
   };
   
 
